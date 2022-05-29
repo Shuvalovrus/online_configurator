@@ -3,8 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <title>Онлайн Конфигуратор</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+    <header class="header header__container">
+        <h1 class="header__title">Онлайн конфигуратор</h1>
+    </header>
+    <main class="main main__container">
+        <h2 class="main__title">задайте параметры стекла</h2>
+        <div class="calculator">
+            <div class="calculator__item item">
+                <label class="item__label" for="length">Укажите длину</label>
+                <input class="item__input" id="length" type="number" placeholder="Длина | мм">
+            </div>
+            <div class="calculator__item item">
+                <label class="item__label" for="width">Укажите ширину</label>
+                <input class="item__input" id="width" type="number" placeholder="Ширина | мм">
+            </div>
+            <div class="calculator__item item item_big">
+                <span class="item__label" for="glass-shape">Форма стекла</span>
+                <select class="item__input" id="glass-shape">
+                    <option value="">Прямоугольник</option>
+                    <option value="">Круг (овал)</option>
+                </select>
+            </div>
+            <div class="calculator__item item item_big">
+                <span class="item__label" for="type">Вид обработки</span>
+                <select class="item__input" id="type">
+                    <option value="">Без обработки</option>
+                    <option value="">С шлифовкой</option>
+                    <option value="">С полировкой</option>
+                </select>
+            </div>
+            <div class="calculator__item item">
+                <label class="item__label" for="counter">Количество</label>
+                <div class="item__counter">
+                    <button class="item__button item__button_plus">+</button>
+                    <input class="item__input item__input_counter" id="counter" type="number" maxlength="4">
+                    <button class="item__button item__button_minus">-</button>
+                </div>
+            </div>
+            <div class="calculator__item item">
+                <span class="item__label">Сумма</span>
+                <span class="item__result">20305</span>
+            </div>
+            <span class="calculator__reset"></span>
+        </div>
+    </main>
 </body>
 </html>
