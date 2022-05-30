@@ -14,41 +14,105 @@
         <div class="calculator">
             <div class="calculator__item item">
                 <label class="item__label" for="length">Укажите длину</label>
-                <input class="item__input" id="length" type="number" placeholder="Длина | мм">
+                <input class="item__input" id="length" type="number" placeholder="Длина | мм" required>
             </div>
             <div class="calculator__item item">
                 <label class="item__label" for="width">Укажите ширину</label>
                 <input class="item__input" id="width" type="number" placeholder="Ширина | мм">
             </div>
             <div class="calculator__item item item_big">
-                <label class="item__label" for="glass-shape">Форма стекла</label>
-                <select class="item__input" id="glass-shape">
-                    <option value="">Прямоугольник</option>
-                    <option value="">Круг (овал)</option>
-                </select>
+                <span class="item__label label__item">Форма стекла &#160;<button class="hint hint_form"><img class="hint__icon" src="img/hint_label.svg" alt="hint"></button></span>
+                <div class="hint__body">
+                    <h3 class="hint__title">ПРИ ВЫБОРЕ ФОРМЫ КРУГ ИЛИ ОВАЛ:</h3>
+                    <ul class="hint__list">
+                        <li class="hint__item">Длина и Ширина у круглой формы совпадают </li>
+                        <li class="hint__item">Длина и Ширина у овальной формы различаются </li>
+                    </ul>
+                </div>
+                <div class="item__select select">
+                    <div class="select__header">
+                        <div class="select__icon">
+                            <img src="img/rectangle.svg" alt="rectangle">
+                        </div>
+                        <span class="select__text form">Прямоугольник</span>
+                        <button class="select__button button">
+                            <img class="button__image" src="img/arrow_bottom.svg" alt="arrow_bottom">
+                        </button>
+                    </div>
+                    <ul class="select__options">
+                        <li class="select__option option">
+                            <div class="option__icon">
+                                <img src="img/rectangle.svg" alt="rectangle">
+                            </div>
+                            Прямоугольник
+                        </li>
+                        <li class="select__option option">
+                            <div class="option__icon">
+                                <img src="img/circle.svg" alt="circle">
+                            </div>
+                            Круг (овал)
+                        </li>
+                    </ul>
+                </div>
             </div>
             <div class="calculator__item item item_big">
-                <label class="item__label" for="type">Вид обработки</label>
-                <select class="item__input" id="type">
-                    <option value="">Без обработки</option>
-                    <option value="">С шлифовкой</option>
-                    <option value="">С полировкой</option>
-                </select>
+                <span class="item__label">Вид обработки &#160; <button class="hint hint_processing"><img class="hint__icon" src="img/hint_label.svg" alt="hint"></button></span>
+                <div class="hint__body hint_big">
+                    <h3 class="hint__title">ПРИ ВЫБОРЕ МЕТОДА ОБРАБОТКИ КРОМКИ:</h3>
+                    <ul class="hint__list hint__list_big">
+                        <li class="hint__item">Без обработки — голый рез, можно порезать руки</li>
+                        <li class="hint__item">Шлифовка – сняты фаски, матовый торец стекла</li>
+                        <li class="hint__item">Полировка – сняты фаски, глянцевый торец стекла</li>
+                    </ul>
+                    <a class="hint__link" href="#">Подробнее об услуге</a>
+                </div>
+                <div class="item__select select">
+                    <div class="select__header">
+                        <div class="select__icon">
+                            <img src="img/untreated.svg" alt="rectangle">
+                        </div>
+                        <span class="select__text processing">Без обработки</span>
+                        <button class="select__button button">
+                            <img class="button__image" src="img/arrow_bottom.svg" alt="arrow_bottom">
+                        </button>
+                    </div>
+                    <ul class="select__options">
+                        <li class="select__option option">
+                            <div class="option__icon">
+                                <img src="img/untreated.svg" alt="rectangle">
+                            </div>
+                            Без обработки
+                        </li>
+                        <li class="select__option option">
+                            <div class="option__icon">
+                                <img src="img/grinding.svg" alt="circle">
+                            </div>
+                            С шлифовкой
+                        </li>
+                        <li class="select__option option">
+                            <div class="option__icon">
+                                <img src="img/Polishing.svg" alt="circle">
+                            </div>
+                            С полировкой
+                        </li>
+                    </ul>
+                </div>
             </div>
             <div class="calculator__item item">
                 <label class="item__label" for="counter">Количество</label>
                 <div class="item__counter">
                     <button class="item__button item__button_plus">+</button>
-                    <input class="item__input item__input_counter" id="counter" type="number" maxlength="4">
+                    <input value="0" class="item__input item__input_counter" id="counter" type="number" maxlength="4">
                     <button class="item__button item__button_minus">-</button>
                 </div>
             </div>
             <div class="calculator__item item">
                 <span class="item__label">Сумма</span>
-                <span class="item__result">20305</span>
+                <span class="item__result">0</span>
             </div>
             <span class="calculator__reset"></span>
         </div>
     </main>
+    <script src="script.js"></script>
 </body>
 </html>
