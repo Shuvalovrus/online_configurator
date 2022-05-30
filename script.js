@@ -1,16 +1,18 @@
-let select = document.querySelectorAll('.select');
-let selectOptions = document.querySelectorAll('.select__options');
-let inputs = document.querySelectorAll('.item__input');
-let sum = document.querySelector('.item__result');
-let processingFactor = document.querySelector('.form');
-let shapeFactor = document.querySelector('.processing');
-let counterWrapper = document.querySelector('.item__counter');
-let counter = document.querySelector('.item__input_counter');
-let calculatorReset = document.querySelector('.calculator__reset');
-let inputWidth = document.querySelector('#width');
-let inputLength = document.querySelector('#length');
+const select = document.querySelectorAll('.select');
+const selectOptions = document.querySelectorAll('.select__options');
+const inputs = document.querySelectorAll('.item__input');
+const sum = document.querySelector('.item__result');
+const processingFactor = document.querySelector('.form');
+const shapeFactor = document.querySelector('.processing');
+const counterWrapper = document.querySelector('.item__counter');
+const counter = document.querySelector('.item__input_counter');
+const calculatorReset = document.querySelector('.calculator__reset');
+const inputWidth = document.querySelector('#width');
+const inputLength = document.querySelector('#length');
 
-let hintButton = document.querySelectorAll('.item_big');
+const hintButton = document.querySelectorAll('.item_big');
+
+const popUp = document.querySelector('.popup')
 
 window.addEventListener('click', (e) => {
     if (e.target.classList.contains('hint__icon')) {
@@ -36,10 +38,18 @@ calculatorReset.addEventListener('click', () => {
     sum.innerText = 0;
     inputLength.classList.remove('no-value');
     inputWidth.classList.remove('no-value');
+    selectOptions.forEach((item) => {
+        if (item.classList.contains('open')) {
+            item.classList.remove('open');
+        }
+    })
 })
+
+counterWrapper.addEventListener('input', checkValue)
 
 counterWrapper.addEventListener('click', (e) => {
     if (e.target.classList.contains('item__button_plus')) {
+        checkValue()
         counter.value++
         calc()
     } else if (e.target.classList.contains('item__button_minus') && counter.value > 0) {
@@ -47,6 +57,16 @@ counterWrapper.addEventListener('click', (e) => {
         calc()
     }
 })
+
+inputs.forEach((elem) => {
+    elem.addEventListener('input', () => {
+        elem.classList.remove('no-value');
+        if (inputs[0].value !== '' && inputs[1].value !== '') {
+            popUp.style.opacity = '0'
+        }
+    })
+})
+
 
 inputs.forEach((elem) => {
     elem.addEventListener('input', (calc))
@@ -80,6 +100,7 @@ function calc () {
 
 function replaceText(e) {
     if (e.target.classList.contains('option')) {
+        checkValue()
         this.parentNode.children[0].children[1].innerText = e.target.innerText
         this.classList.toggle('open')
         calc()
@@ -91,5 +112,19 @@ function getOptions (e) {
 
     if (e.target.tagName === 'BUTTON' || e.target.classList.contains('button__image')) {
         this.children[1].classList.toggle('open')
+    }
+}
+
+function checkValue () {
+    if (inputLength.value === '') {
+        inputLength.classList.add('no-value');
+    }
+
+    if (inputWidth.value === '') {
+        inputWidth.classList.add('no-value');
+    }
+
+    if (inputLength.value === '' || inputWidth.value === '') {
+        popUp.style.opacity = '1'
     }
 }

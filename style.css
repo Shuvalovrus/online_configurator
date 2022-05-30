@@ -96,6 +96,7 @@ body {
 
 /* CALCULATOR */
 .calculator {
+    position: relative;
     padding-left: 18px;
     padding-top: 35px;
     display: flex;
@@ -344,6 +345,47 @@ body {
 }
 /* /HINT */
 
+/* POPUP */
+.popup {
+    position: absolute;
+    width: 188px;
+    height: 49px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 125px;
+    left: 30px;
+    background-color: #fff;
+    box-shadow: 0 4px 10px 0 rgba(30,30,30,0.34);
+    border-radius: 10px;
+    transition: opacity 0.3s ease 0s;
+    opacity: 0;
+}
+
+.popup::after {
+    content: '\25B2';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    color: #fff;
+    width: 5px;
+    height: 5px;
+}
+
+
+.popup__img {
+    margin-right: 12px;
+    width: 17px;
+    height: 17px;
+}
+
+.popup__text {
+    font-size: 15px;
+    line-height: 1.2;
+    color: #1e1e1c;
+    font-weight: 600;
+}
+/* /POPUP */
 .no-value {
     border: 1px solid red;
 }
